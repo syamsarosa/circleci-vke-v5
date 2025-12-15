@@ -16,8 +16,8 @@ jobs:
       - run:
           name: Push the Docker image to Docker Hub registry
           command: docker push syamsarosa/circleci-vke:$CIRCLE_SHA1
-        
-          deploy:
+
+  deploy:
     docker:
       - image: lachlanevenson/k8s-kubectl
     steps:
@@ -36,7 +36,7 @@ jobs:
       - run:
           name: Apply service.yaml
           command: KUBECONFIG=$(pwd)/kubeconfig kubectl apply -f service.yaml
-        
+
         workflows:
           deploy_circleci_vke:
     jobs:
