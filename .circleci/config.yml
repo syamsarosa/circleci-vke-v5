@@ -37,8 +37,8 @@ jobs:
           name: Apply service.yaml
           command: KUBECONFIG=$(pwd)/kubeconfig kubectl apply -f service.yaml
 
-        workflows:
-          deploy_circleci_vke:
+workflows:
+  deploy_circleci_vke:
     jobs:
       - build
       - deploy:
